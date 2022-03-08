@@ -1,7 +1,6 @@
 {
     "git.autofetch": true,
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "terminal.integrated.fontFamily": "monospace",
@@ -28,10 +27,8 @@
     },
     "git.confirmSync": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
-    "files.autoSave": "onFocusChange",
     "trailing-spaces.trimOnSave": true,
     "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
     "diffEditor.ignoreTrimWhitespace": false,
     "prettier.vueIndentScriptAndStyle": true,
     "javascript.updateImportsOnFileMove.enabled": "always",

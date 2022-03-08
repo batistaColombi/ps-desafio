@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NacionalidadeController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,10 @@ Route::middleware('locale')->group(function () {
         //Rotas para CRUD usuário
         Route::resource('user', UserController::class, ['except' => ['show']]);
         Route::resource('nacionalidade', NacionalidadeController::class, ['except' => ['show']]);
+        Route::resource('categoria', CategoriaController::class, ['except' => ['show']]);
+        Route::resource('produto', ProdutoController::class);
+
+
 
         //Rotas para perfil do usuário
         Route::controller(ProfileController::class)->name('profile.')->group(function () {
