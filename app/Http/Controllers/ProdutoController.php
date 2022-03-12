@@ -23,7 +23,8 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = $this->produtos->all();
-        return view('produto.index', compact('produtos'));
+        //return view('produto.index', compact('produtos'));
+        return view('home', compact('produtos'));
     }
 
 
@@ -36,9 +37,16 @@ class ProdutoController extends Controller
 
     public function store(Request $request)    //cria objeto e mandar pro banco
     {
-        $datas = $request->all();
+        $produto = new Produto();
+        $produto->nome = $request->input('nome');
+        $produto->preco = $request->input('preco');
+        $produto->descricao = $request->input('descricao');
+        $produto->quantidade = $request->input('quantidade');
+        $imagem = $request->file('imagem')->store('produtos', 'public');
+        $produto->imagem = $imagem;
+        $produto->categoria_id = $request->input('categoria_id');
 
-        $this->produtos->create($datas);
+        $produto->save();
 
         return redirect(route('produto.index'));
     }
@@ -46,6 +54,8 @@ class ProdutoController extends Controller
     public function show($id)       //mostrar dados
     {
         $produto = $this->produtos->find($id);
+        $categoria = $this->categorias->find($produto->categoria_id);
+        $produto->categoria = $categoria->categoria;
 
         return json_encode($produto);
     }

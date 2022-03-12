@@ -19,7 +19,7 @@ return new class extends Migration
             $table->double('preco', 8, 2);
             $table->text('descricao');
             $table->integer('quantidade');
-            $table->string('imagem');
+            $table->binary('imagem');
             $table->bigInteger('categoria_id')->unsigned();
             $table->foreign('categoria_id')->constrained('categorias')->onDelete('cascade');
 
